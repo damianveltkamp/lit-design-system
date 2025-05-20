@@ -1,0 +1,62 @@
+{
+  "name": "damian-design-system-poc",
+  "version": "2.0.16",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "build": "npm run build-vite && npm run copy-react-custom-elements",
+    "build-vite": "vite build",
+    "copy-react-custom-elements": "cp src/types/react-custom-elements.d.ts dist/src/types/",
+    "publish-package-to-localhost": "npm publish --registry http://localhost:4873/"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "exports": {
+    ".": {
+      "import": "./dist"
+    },
+    "./button": {
+      "import": "./dist/button.js",
+      "types": "./dist/src/types/components/button.d.ts"
+    },
+    "./header": {
+      "import": "./dist/header.js",
+      "types": "./dist/src/types/components/header.d.ts"
+    },
+    "./user": {
+      "import": "./dist/user.js",
+      "types": "./dist/src/types/components/user.d.ts"
+    },
+    "./react-custom-elements": {
+      "types": "./dist/src/types/react-custom-elements.d.ts"
+    }
+  },
+  "files": [
+    "dist/"
+  ],
+  "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.6",
+    "@storybook/addon-essentials": "^8.6.12",
+    "@storybook/blocks": "^8.6.12",
+    "@storybook/experimental-addon-test": "^8.6.12",
+    "@storybook/test": "^8.6.12",
+    "@storybook/web-components": "^8.6.12",
+    "@storybook/web-components-vite": "^8.6.12",
+    "@types/node": "^22.14.1",
+    "lit": "^3.3.0",
+    "storybook": "^8.6.12",
+    "ts-lit-plugin": "^2.0.2",
+    "typescript": "^5.8.3",
+    "vite-plugin-dts": "^4.5.3"
+  },
+  "dependencies": {
+    "@lit/context": "^1.1.5",
+    "@lit/react": "^1.0.7",
+    "class-variance-authority": "^0.7.1",
+    "react": "^19.1.0",
+    "zod": "^3.24.2"
+  }
+}
